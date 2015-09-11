@@ -1,10 +1,12 @@
 package com.raimundopuche.bloquesmemoria;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.support.v7.app.AppCompatActivity;
 import android.util.FloatMath;
 import android.os.CountDownTimer;
 import android.support.v7.app.ActionBarActivity;
@@ -25,7 +27,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 
-public class JuegoPrincipal extends ActionBarActivity {
+public class JuegoPrincipal extends AppCompatActivity {
     Button bloqueVisible;
     Button bloque1;
     Button bloque2;
@@ -56,12 +58,27 @@ public class JuegoPrincipal extends ActionBarActivity {
     private SensorManager mSensorManager;
     private Sensor mAccelerometer;
     private ShakeDetector mShakeDetector;
-
+    private Button btn;
+    private Button btn2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego_principal);
         cargarJuego();
+
+
+
+
+        btn = (Button)findViewById(R.id.reini);
+        btn2= (Button)findViewById(R.id.histo);
+
+        btn.setBackgroundColor(Color.argb(100, 30, 108, 243));
+        btn2.setBackgroundColor(Color.argb(100, 30, 108, 243));
+
+
+
+
+
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         mAccelerometer = mSensorManager
                 .getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
@@ -89,7 +106,6 @@ public class JuegoPrincipal extends ActionBarActivity {
     }
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
-        super.onSaveInstanceState(savedInstanceState);
         savedInstanceState.putString("valor", parejas);
         savedInstanceState.putInt("puntos", puntos);
         savedInstanceState.putInt("encontradas", parejasEncontradas);
@@ -103,7 +119,7 @@ public class JuegoPrincipal extends ActionBarActivity {
             }
         }
         savedInstanceState.putString("orden", orden);
-
+        super.onSaveInstanceState(savedInstanceState);
 
     }
     @Override
@@ -116,6 +132,7 @@ public class JuegoPrincipal extends ActionBarActivity {
         resume = savedInstanceState.getBoolean("resume");
         orden = savedInstanceState.getString("orden");
         //load game again
+
     }
     private void cargarJuego() {
         etiquetaPuntos = (TextView)findViewById(R.id.puntos);

@@ -7,6 +7,22 @@
     android:background="@color/background_material_dark"
     android:id="@+id/view">
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Reiniciar"
+        android:onClick="reinicio"
+        android:id="@+id/reini" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Historial"
+        android:onClick="historial"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/histo"
+        android:layout_marginTop="10dp" />
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="0dp"
@@ -20,16 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.8">
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Reiniciar"
-            android:onClick="reinicio"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Historial"
-            android:onClick="historial"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
