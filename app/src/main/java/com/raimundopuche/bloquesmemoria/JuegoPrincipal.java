@@ -116,7 +116,6 @@ public class JuegoPrincipal extends ActionBarActivity {
         resume = savedInstanceState.getBoolean("resume");
         orden = savedInstanceState.getString("orden");
         //load game again
-rpuche
     }
     private void cargarJuego() {
         etiquetaPuntos = (TextView)findViewById(R.id.puntos);
